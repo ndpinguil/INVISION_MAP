@@ -26,6 +26,7 @@ myMap.doubleClickZoom.disable();
 
 
 myMap.on('dblClick', e => {
+    alert("Hola");
     let latLng = myMap.mouseEventToLatLng(e.originalEvent);/*Se obtiene las coordenadas del punto donde se haya dado doble clic en el mapa */
     L.marker([latLng.lat, latLng.lng], {icon: iconMarker}).addTo(myMap);
 });
@@ -34,7 +35,7 @@ myMap.on('dblClick', e => {
 /*Código para saber la ubicación de la persona que use la app usando un método del navegador */
 // getCurrentPosition e sun método que necesita 3 argumentos: 2 funciones y un objeto que tenga las opciones para el método
 navigator.geolocation.getCurrentPosition(
-    (pos) => {//Definimos lo que sucede cuando se obtiene la posición 
+    (pos) => {//Definimos lo que sucede cuando se obtiene la posición fetch axios postman
         const { coords } = pos
         console.log(coords)
     },
