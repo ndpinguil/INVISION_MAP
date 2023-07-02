@@ -12,7 +12,7 @@ let marker = L.marker([-2.912807943941458, -78.9948844979908]).addTo(myMap);
 
 /*Marcador que nosotros añadimos */
 let iconMarker = L.icon({
-    iconUrl: '/img/marker.png', 
+    iconUrl: '../img/marker.png', 
     iconSize: [60,60],
     iconAnchor: [30, 60]/*Especifica dónde se va a pintar el marcador dentro del mapa*/
 });
