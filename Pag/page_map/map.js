@@ -65,7 +65,7 @@ const startButton = document.getElementById('start-button');
             obstaclesContainer.style.display = 'none';
           
             // Realizar solicitud HTTP a la API de Strapi
-            fetch('https://tu-api-strapi.com/obstacles', {
+            fetch('http://localhost:1337/admin', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const startButton = document.getElementById('start-button');
               .then(response => response.json())
               .then(data => {
                 // Aquí puedes realizar acciones adicionales después de enviar el obstáculo a Strapi
-                console.log('Obstáculo guardado:', data);
+                alert('Obstáculo guardado:', data);
               })
               .catch(error => {
                 console.error('Error al guardar el obstáculo:', error);
