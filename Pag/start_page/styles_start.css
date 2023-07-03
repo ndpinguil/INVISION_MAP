@@ -1,11 +1,90 @@
-/* Establece un color de fondo verde */
+/*Body*/
+body{
+  margin: 0;
+  box-sizing: border-box;
+
+  background: linear-gradient(green, 20%, lightgreen);
+}
+
+header{
+  text-align: center;
+  margin-top: 5%;
+}
+
+/*main*/
+main{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+  margin: 0 10% 10% ;
+}
+
+.text p{
+  margin-left: 5%;
+}
+
+/*Logo*/
+#logo{
+  text-align: center;
+}
+
+
+/*Botón*/
+.boton{
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* Establece un color de fondo verde 
 body {
     background-color: green;
     margin: 0;
     padding: 0;
   }
   
-  /* Estilo para el encabezado */
+  /* Estilo para el encabezado 
   header {
     background-color: white;
     padding: 20px;
@@ -16,19 +95,19 @@ body {
     text-align: center;
   }
   
-  /*@keyframes mover-lado-a-lado {
+  @keyframes mover-lado-a-lado {
     0% { transform: translateX(-10px); }
     
     100% { transform: translateX(100%); }
-  }*/
+  }
   
-  /* Estilo para la sección "Cómo funciona" */
+  /* Estilo para la sección "Cómo funciona" 
   .como-funciona {
     padding: 20px;
     color: white;
   }
   
-  /* Estilo para el botón "Acceder" */
+  /*Estilo para el botón "Acceder" 
   .acceder-btn {
     display: block;
     width: 200px;
@@ -39,4 +118,4 @@ body {
     font-size: 18px;
     border: none;
     cursor: pointer;
-  }
+  }*/
