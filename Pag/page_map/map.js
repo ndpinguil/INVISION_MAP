@@ -55,7 +55,7 @@ const startButton = document.getElementById('start-button');
 
         saveButton.addEventListener('click', () => {
             const obstacle = obstacleInput.value;
-            // Aquí puedes realizar acciones con el obstáculo ingresado, como guardar en una base de datos, etc.
+            // espacio donde se pueden realizar acciones con el obstáculo ingresado, como guardar en una base de datos, etc.
             obstacleInput.value = '';
             obstaclesContainer.style.display = 'none';
         });
