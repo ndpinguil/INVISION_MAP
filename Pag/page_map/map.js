@@ -42,3 +42,44 @@ navigator.geolocation.getCurrentPosition(
     (err) => {},
     {}
 )
+
+/*Guarda información en strapi*/
+const startButton = document.getElementById('start-button');
+        const obstaclesContainer = document.getElementById('obstacles-container');
+        const obstacleInput = document.getElementById('obstacle-input');
+        const saveButton = document.getElementById('save-button');
+
+        startButton.addEventListener('click', () => {
+            obstaclesContainer.style.display = 'block';
+        });
+
+        saveButton.addEventListener('click', () => {
+            const obstacle = obstacleInput.value;
+            // Aquí puedes realizar acciones con el obstáculo ingresado, como guardar en una base de datos, etc.
+            obstacleInput.value = '';
+            obstaclesContainer.style.display = 'none';
+        });
+        saveButton.addEventListener('click', () => {
+            const obstacle = obstacleInput.value;
+            obstacleInput.value = '';
+            obstaclesContainer.style.display = 'none';
+          
+            // Realizar solicitud HTTP a la API de Strapi
+            fetch('https://tu-api-strapi.com/obstacles', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                obstacle: obstacle,
+              }),
+            })
+              .then(response => response.json())
+              .then(data => {
+                // Aquí puedes realizar acciones adicionales después de enviar el obstáculo a Strapi
+                console.log('Obstáculo guardado:', data);
+              })
+              .catch(error => {
+                console.error('Error al guardar el obstáculo:', error);
+              });
+          });

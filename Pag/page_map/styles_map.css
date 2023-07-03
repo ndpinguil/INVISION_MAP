@@ -1,0 +1,64 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el encabezado */
+header {
+    padding: 10px;
+    text-align: right;
+    background-color: #c9e2ca; /* Color de fondo verde claro pastel */
+    color: #000; /* Color del texto */
+}
+h1{
+    text-align: center;
+}
+    
+/* Estilos para el botón de inicio de ruta */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+#start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+}
+
+/* Estilos para centrar el mapa en dispositivos móviles */
+#myMap {
+    margin: 20px auto;
+    max-width: 800px;
+    height: 600px;
+}
+
+#obstacles-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: none;
+}
+
+#obstacle-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#save-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

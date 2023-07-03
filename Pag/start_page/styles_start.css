@@ -1,4 +1,41 @@
-.main_container{
-    display: flex;
-}
-
+/* Establece un color de fondo verde */
+body {
+    background-color: green;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilo para el encabezado */
+  header {
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .titulo {
+    animation: mover-lado-a-lado 6s infinite;
+  }
+  
+  @keyframes mover-lado-a-lado {
+    0% { transform: translateX(-10px); }
+    
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Estilo para la sección "Cómo funciona" */
+  .como-funciona {
+    padding: 20px;
+    color: white;
+  }
+  
+  /* Estilo para el botón "Acceder" */
+  .acceder-btn {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    background-color: white;
+    color: green;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
