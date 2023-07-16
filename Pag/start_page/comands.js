@@ -15,10 +15,11 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
         // Por ejemplo, puedes utilizar condicionales o enviar el comando a un servidor para su procesamiento
 
         // Ejemplo de condicional para un comando específico
-        if (command.toLowerCase() === 'abrir mapa') {
+        if (command.toLowerCase() === 'abrir mapa' || command.toLowerCase() === 'ir al mapa' || command.toLowerCase() === 'mapa' || command.toLowerCase() === 'entrar al mapa') {
             // Acción a realizar cuando se recibe el comando "Abrir configuración"
-            //alert('Comando recibido: Abrir configuración');
             window.location.href = "../page_map/index_map.html";
+        }else if((command.toLowerCase() === 'volver' || command.toLowerCase() === 'retroceder' || command.toLowerCase() === 'inicio' || command.toLowerCase() === 'regresar')) {
+            window.location.href = "../start_page/index_start.html";
         }
     };
 

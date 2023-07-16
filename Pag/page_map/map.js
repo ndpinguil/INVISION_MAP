@@ -43,43 +43,28 @@ navigator.geolocation.getCurrentPosition(
     {}
 )
 
-/*Guarda información en strapi*/
-const startButton = document.getElementById('start-button');
-        const obstaclesContainer = document.getElementById('obstacles-container');
-        const obstacleInput = document.getElementById('obstacle-input');
-        const saveButton = document.getElementById('save-button');
+// Función para crear un nuevo marcador cuando se recibe el comando de voz "nuevo obstáculo"
+function createMarker() {
+  let currentLocation = marker2.getLatLng(); // Obtener la posición actual del marcador en el mapa
+  let newMarker = L.marker([currentLocation.lat, currentLocation.lng], {icon: iconMarker}).addTo(myMap); // Crear un nuevo marcador en la misma posición
+  new Audio('notification.mp3').play(); // Reproducir el audio de notificación
+}
 
-        startButton.addEventListener('click', () => {
-            obstaclesContainer.style.display = 'block';
-        });
+// Reconocimiento de voz
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-        saveButton.addEventListener('click', () => {
-            const obstacle = obstacleInput.value;
-            // espacio donde se pueden realizar acciones con el obstáculo ingresado, como guardar en una base de datos, etc.
-            obstacleInput.value = '';
-            obstaclesContainer.style.display = 'none';
-        });
-        saveButton.addEventListener('click', () => {
-            const obstacle = obstacleInput.value;
-            obstacleInput.value = '';
-            obstaclesContainer.style.display = 'none';
-          
-            // Realizar solicitud HTTP a la API de Strapi
-            fetch('http://localhost:1337/admin', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                obstacle: obstacle,
-              }),
-            })
-              .then(response => response.json())
-              .then(data => {
-                // Aquí puedes realizar acciones adicionales después de enviar el obstáculo a Strapi
-                alert('Obstáculo guardado:', data);
-              })
-              .catch(error => {
-                console.error('Error al guardar el obstáculo:', error);
-              });
-          });
+  recognition.lang = 'es';
+
+  recognition.onresult = function(event) {
+      var command = event.results[0][0].transcript;
+      if (command.toLowerCase() === 'nuevo obstáculo') {
+          createMarker();
+          alert('Se ha creado un nuevo obstáculo en base a tu posición.');
+      }
+  };
+
+  recognition.start();
+} else {
+  alert('El reconocimiento de voz no es compatible con este navegador.');
+}
