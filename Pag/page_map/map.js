@@ -52,19 +52,20 @@ function createMarker() {
 
 // Reconocimiento de voz
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-  recognition.lang = 'es';
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-  recognition.onresult = function(event) {
-      var command = event.results[0][0].transcript;
-      if (command.toLowerCase() === 'nuevo obstáculo') {
-          createMarker();
-          alert('Se ha creado un nuevo obstáculo en base a tu posición.');
-      }
-  };
+    recognition.lang = 'es';
 
-  recognition.start();
+    recognition.onresult = function(event) {
+        var command = event.results[0][0].transcript;
+        if (command.toLowerCase() === 'nuevo obstáculo') {
+            createMarker();
+            alert('Se ha creado un nuevo obstáculo en base a tu posición.');
+        }
+    };
+
+    recognition.start();
 } else {
-  alert('El reconocimiento de voz no es compatible con este navegador.');
+    alert('El reconocimiento de voz no es compatible con este navegador.');
 }
