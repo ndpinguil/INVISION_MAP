@@ -25,10 +25,10 @@ let marker2 = L.marker([-2.912807943941457, -78.9948844979908], {icon: iconMarke
 myMap.doubleClickZoom.disable();
 
 
-myMap.on('dblClick', e => {
-    alert("Hola");
-    let latLng = myMap.mouseEventToLatLng(e.originalEvent);/*Se obtiene las coordenadas del punto donde se haya dado doble clic en el mapa */
-    L.marker([latLng.lat, latLng.lng], {icon: iconMarker}).addTo(myMap);
+// Manejador de eventos para añadir marcador al hacer doble clic
+myMap.on('dblclick', e => {
+    let latLng = myMap.mouseEventToLatLng(e.originalEvent);
+    L.marker([latLng.lat, latLng.lng], { icon: iconMarker }).addTo(myMap);
 });
 
 
@@ -38,6 +38,7 @@ navigator.geolocation.getCurrentPosition(
     (pos) => {//Definimos lo que sucede cuando se obtiene la posición fetch axios postman
         const { coords } = pos
         console.log(coords)
+        let marker3 = L.marker([-2.912807943941457, -78.9948844979908], {icon: iconMarker}).addTo(myMap);
     },
     (err) => {},
     {}
